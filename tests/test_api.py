@@ -3,10 +3,15 @@ sys.path.append("./")
 
 import pytest
 
-from api import app
+from src.api import create_app
 
 @pytest.fixture
-def client():
+def app():
+    app = create_app()
+    return app
+
+@pytest.fixture
+def client(app):
     client = app.test_client()
     return client
 

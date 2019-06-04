@@ -6,7 +6,7 @@ plugins:
 
 custom:
   wsgi:
-    app: api.app
+    app: src.api.app
     pythonBin: python
     packRequirements: false
   pythonRequirements:
