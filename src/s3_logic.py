@@ -33,8 +33,6 @@ class S3Logic:
             user_list.append(str(key.key))
         return user_list
 
-s3 = S3Logic()
-users = s3.get_all_user_ids()
-print(users)
+# for get user
 #thing = self.client.get_object(Bucket=self.bucket_name,Key=user_id)
 #_thing = pickle.loads(thing['Body'].read())
