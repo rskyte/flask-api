@@ -1,13 +1,13 @@
 import sys
 sys.path.append("./")
-sys.path.append("./src")
+sys.path.append("./src/")
 
 import os
 print(os.getcwd())
 
 import pytest
 
-from src.api import create_app
+from api import create_app
 
 
 @pytest.fixture
