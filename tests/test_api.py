@@ -7,7 +7,7 @@ print(os.getcwd())
 
 import pytest
 
-from api import create_app
+from src.api import create_app
 
 
 @pytest.fixture
