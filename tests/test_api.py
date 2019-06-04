@@ -1,17 +1,17 @@
 import os
 import sys
+import pytest
 sys.path.append("./")
 sys.path.append(os.getcwd() + "/src")
 
 print(sys.path)
 print(os.getcwd())
 
-import pytest
-
 from api import create_app
 
 @pytest.fixture
 def app():
+    print("In App")
     app = create_app()
     return app
 
