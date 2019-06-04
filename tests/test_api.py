@@ -4,9 +4,6 @@ import pytest
 sys.path.append("./")
 sys.path.append(os.getcwd() + "/src")
 
-print(sys.path)
-print(os.getcwd())
-
 from api import create_app
 
 @pytest.fixture
