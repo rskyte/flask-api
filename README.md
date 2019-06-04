@@ -11,3 +11,5 @@ https://scotch.io/tutorials/build-a-restful-api-with-flask-the-tdd-way
 https://blog.sicara.com/deploy-serverless-rest-api-lambda-s3-aws-2cf99b8f34ae
 
 The AWS docs - https://docs.aws.amazon.com/
+
+https://medium.com/@hmajid2301/testing-with-pytest-mock-and-pytest-flask-13cd968e1f24
