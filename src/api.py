@@ -17,6 +17,11 @@ def create_app():
 
         return jsonify({'status': 'success', 'userId': user_id})
     
+    @app.route("/api/users/all")
+    def all_users():
+        users = []
+        return jsonify({"users": users})
+    
     return app
 
 app = create_app()   
