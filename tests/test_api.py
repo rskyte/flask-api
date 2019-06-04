@@ -2,13 +2,13 @@ import sys
 sys.path.append("./")
 sys.path.append("./flask-api")
 
+print(sys.path)
 import os
 print(os.getcwd())
 
 import pytest
 
 from src.api import create_app
-
 
 @pytest.fixture
 def app():
