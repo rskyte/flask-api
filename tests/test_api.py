@@ -20,3 +20,7 @@ def client(app):
 def test_app_route_returns_ok_status_code(client):
     response = client.get("/")
     assert response.status_code == 200
+
+def test_app_route_has_welcome_page(client):
+    response = client.get("/")
+    assert response.data == "<h1>Flask API<h1>"

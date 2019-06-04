@@ -5,7 +5,7 @@ def create_app():
 
     @app.route("/")
     def hello():
-        return "Hello World v2!"
+        return "<h1>Flask API<h1>"
     
     return app
 
