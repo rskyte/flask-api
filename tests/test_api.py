@@ -1,9 +1,13 @@
 import sys
 sys.path.append("./")
+sys.path.append("./src")
 
 import pytest
 
-from api import create_app
+try:
+    from api import create_app
+except Exception():
+    raise
 
 @pytest.fixture
 def app():
