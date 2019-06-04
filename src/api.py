@@ -9,9 +9,13 @@ def create_app():
 
     @app.route("/api/users", methods=["POST"])
     def create_user():
-        user_id = request.json.get('userId')
-        name = request.json.get('name')
-        return "User: %s, created." % user_id
+        try:
+            user_id = request.json.get('userId')
+            name = request.json.get('name')
+        except Exception:
+            return jsonify({'error': 'Please provide data in correct format'}), 400
+
+        return jsonify({'status': 'success', 'userId': user_id})
     
     return app
 

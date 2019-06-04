@@ -5,6 +5,7 @@ sys.path.append("./")
 sys.path.append(os.getcwd() + "/src")
 
 from api import create_app
+from flask import jsonify
 
 @pytest.fixture
 def app():
@@ -29,4 +30,9 @@ def test_api_can_receive_user_data(client):
     test_data = {'userId': 'jbloggs', 'name': 'Joseph Bloggs'}
     response = client.post("/api/users", json=test_data)
     assert response.status_code == 200
-    assert response.data == "User: jbloggs, created."
+    assert response.get_json() == {'status': 'success', 'userId': 'jbloggs'}
+
+def test_api_refuses_data_in_incorrect_format(client):
+    response = client.post("/api/users", json="incorrect")
+    assert response.status_code == 400
+    assert response.get_json() == {'error': 'Please provide data in correct format'}
