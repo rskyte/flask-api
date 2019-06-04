@@ -15,3 +15,5 @@ The AWS docs - https://docs.aws.amazon.com/
 https://medium.com/@hmajid2301/testing-with-pytest-mock-and-pytest-flask-13cd968e1f24
 
 https://stackoverflow.com/questions/53809090/codebuild-does-not-upload-build-artifact-to-s3 - super helpful!!!
+
+https://dzone.com/articles/boto3-amazon-s3-as-python-object-store
