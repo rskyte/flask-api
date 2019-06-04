@@ -1,9 +1,9 @@
+import os
 import sys
 sys.path.append("./")
-sys.path.append("./flask-api")
+sys.path.append(os.getcwd() + "./flask-api")
 
 print(sys.path)
-import os
 print(os.getcwd())
 
 import pytest
