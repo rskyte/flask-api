@@ -23,7 +23,7 @@ def test_api_route_returns_ok_status_code(client):
 
 def test_api_route_has_welcome_page(client):   
     response = client.get("/")
-    value = response.data
+    value = str(response.data)
     assert value == "<h1>Flask API<h1>"
 
 def test_api_can_receive_user_data(client):
