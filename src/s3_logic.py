@@ -28,7 +28,7 @@ class S3Logic:
     def get_all_user_ids(self):
         user_list = []
         for key in self.bucket.objects.all():
-            if self.bucket.key and type(self.bucket.objects.all()) is dict:
+            if 'key' in self.bucket.__dict__.keys() and type(self.bucket.objects.all()) is dict:
                 key = self.bucket.key()
             user_list.append(str(key.key))
         return user_list

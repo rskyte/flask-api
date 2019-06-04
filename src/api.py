@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from s3_logic import S3Logic
 
 def create_app():
     app = Flask(__name__)
+    s3 = S3Logic()
 
     @app.route("/")
     def index():
@@ -12,6 +14,9 @@ def create_app():
         try:
             user_id = request.json.get('userId')
             name = request.json.get('name')
+            response = s3.put({'userId': user_id, 'name': name})
+            if not response == 200:
+                raise Exception
         except Exception:
             return jsonify({'error': 'Please provide data in correct format'}), 400
 
@@ -19,7 +24,7 @@ def create_app():
     
     @app.route("/api/users/all")
     def all_users():
-        users = []
+        users = s3.get_all_user_ids()
         return jsonify({"users": users})
     
     return app
