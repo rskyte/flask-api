@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append("./")
-sys.path.append(os.getcwd() + "/flask-api")
+sys.path.append(os.getcwd() + "/src")
 
 print(sys.path)
 print(os.getcwd())
