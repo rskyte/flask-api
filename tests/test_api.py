@@ -7,10 +7,8 @@ print(os.getcwd())
 
 import pytest
 
-try:
-    from api import create_app
-except Exception():
-    raise
+from api import create_app
+
 
 @pytest.fixture
 def app():
