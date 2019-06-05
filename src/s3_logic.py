@@ -20,8 +20,7 @@ class S3Logic:
         if client is not None:
             self.client = client
         else:  
-            session = boto3.session.Session()
-            self.client = session.client('s3', region_name='eu-west-1', aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'), aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
+            self.client = boto3.client('s3')
     
     def put(self, data):
         serializedObject = pickle.dumps(data)

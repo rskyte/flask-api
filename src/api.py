@@ -16,7 +16,7 @@ def create_app(s3_logic = S3Logic()):
 
     @app.route("/api/user/test")
     def test():
-        response = s3.put({"userId": "jbloggs", "name": "Joseph Bloggs"})
+        #response = s3.put({"userId": "jbloggs", "name": "Joseph Bloggs"})
         return "<h1>HELLO<h1>"
 
     @app.route("/api/user/new", methods=["POST"])
