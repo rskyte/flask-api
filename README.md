@@ -94,4 +94,4 @@ https://stackoverflow.com/questions/53809090/codebuild-does-not-upload-build-art
 
 https://dzone.com/articles/boto3-amazon-s3-as-python-object-store
 
-AWS CLoudWatch logs were very useful for debugging deployed code
+AWS CloudWatch logs were very useful for debugging deployed code
