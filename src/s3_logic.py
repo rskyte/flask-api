@@ -21,7 +21,7 @@ class S3Logic:
             self.client = client
         else:  
             session = boto3.session.Session()
-            self.client = session.client('s3')
+            self.client = session.client('s3', aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'), aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
     
     def put(self, data):
         serializedObject = pickle.dumps(data)

@@ -10,13 +10,13 @@ def create_app(s3_logic = S3Logic()):
         return "<h1>Flask API<h1>"
 
     @app.route("/api/user/new", methods=["POST"])
-    def create_user():
+    def create_user():      
         try:
             user_id = request.json.get('userId')
             name = request.json.get('name')
             response = s3.put({'userId': user_id, 'name': name})
             if not response == 200:
-                raise Exception
+                raise Exception      
         except Exception:
             return jsonify({'error': 'Please provide data in correct format'}), 400
 
