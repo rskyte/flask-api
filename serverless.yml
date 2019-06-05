@@ -19,9 +19,18 @@ provider:
   region: eu-west-2
 
 functions:
-  # TODO - extract rest methods into individual handlers
   app:
     handler: wsgi_handler.handler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+  
+  create_user:
+    handler: wsgi_handler.handler
+    events:
+      - http: POST /api/user/new
+
+  all_users:
+    handler: wsgi_handler.handler
+    events:
+      - http: GET /api/user/all

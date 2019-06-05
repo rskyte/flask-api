@@ -75,6 +75,7 @@ $ pytest -v
 * Dedicated release pipelines (dev, staging and production)
 * Run app locally using local aws s3 mock
 * Add remaining CRUD routes (delete, update)
+* Automate integration tests
 
 ### Acknowledgements
 

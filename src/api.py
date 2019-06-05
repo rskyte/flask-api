@@ -14,6 +14,11 @@ def create_app(s3_logic = S3Logic()):
     def index():
         return "<h1>Flask API<h1>"
 
+    @app.route("/api/user/test")
+    def test():
+        response = s3.put({"userId": "jbloggs", "name": "Joseph Bloggs"})
+        return "<h1>HELLO<h1>"
+
     @app.route("/api/user/new", methods=["POST"])
     def create_user():      
         try:
