@@ -65,7 +65,7 @@ $ sls wsgi serve
 
 #### Running Unit Tests
 ```
-$ pytest -v
+$ python3 -m pytest -v
 ```
 
 ### Postman Results
