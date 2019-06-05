@@ -1,3 +1,8 @@
+import os
+import sys
+sys.path.append("./")
+sys.path.append(os.getcwd() + "/src")
+
 from flask import Flask, jsonify, request
 from s3_logic import S3Logic
 
