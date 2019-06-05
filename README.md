@@ -70,10 +70,10 @@ $ pytest -v
 
 ### Postman Results
 Posting correctly formatted data to api running on AWS
-[http post method](/img/pm_post_flaskapi.png)
+![http post method](/img/pm_post_flaskapi.png)
 
 Retrieving data:
-[http get method](/img/pm_get_flaskapi.png)
+![http get method](/img/pm_get_flaskapi.png)
 
 ### TODO
 * More comprehensive error handling
