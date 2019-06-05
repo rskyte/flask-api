@@ -81,6 +81,7 @@ Retrieving data:
 * Run app locally using local aws s3 mock
 * Add remaining CRUD routes (delete, update)
 * Automate integration tests
+* Validate data inputs
 
 ### Acknowledgements
 
