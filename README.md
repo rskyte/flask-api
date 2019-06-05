@@ -1,6 +1,6 @@
 ## Serverless API
 
-A python api built using the flask/serverless frameworks hosted on aws lambda.
+A python api hosted on aws lambda built using the flask/serverless frameworks which persists data to an aws s3 bucket.
 
 #### Acknowledgements
 

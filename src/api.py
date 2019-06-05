@@ -1,9 +1,9 @@
 from flask import Flask, jsonify, request
 from s3_logic import S3Logic
 
-def create_app():
+def create_app(s3_logic = S3Logic()):
     app = Flask(__name__)
-    s3 = S3Logic()
+    s3 = s3_logic
 
     @app.route("/")
     def index():

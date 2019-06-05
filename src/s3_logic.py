@@ -5,11 +5,16 @@ import pickle
 class S3Logic:
 
     def __init__(self, client = None, bucket = None):
-        self.bucket_name = 'flask-api-bucket'
+        if os.environ.get('IS_OFFLINE'):
+            session = boto3.session.Session()
+            self.client = session.client('s3')
+        #self.bucket_name = 'flask-api-bucket'
+        self.bucket_name = 'local-bucket'
         if bucket is not None:
             self.bucket = bucket
         else:
             self.bucket = boto3.resource('s3').Bucket(self.bucket_name)
+
         if client is not None:
             self.client = client
         else:  

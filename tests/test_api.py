@@ -1,15 +1,20 @@
 import os
 import sys
 import pytest
+import unittest
 sys.path.append("./")
 sys.path.append(os.getcwd() + "/src")
 
 from api import create_app
+from unittest.mock import MagicMock
+from s3_logic import S3Logic
 
 @pytest.fixture
 def app():
-    print("In App")
-    app = create_app()
+    s3 = S3Logic()
+    s3.get_all_user_ids = MagicMock(return_value=[])
+    s3.put = MagicMock(return_value=200)
+    app = create_app(s3)
     return app
 
 @pytest.fixture
@@ -39,4 +44,4 @@ def test_api_refuses_data_in_incorrect_format(client):
 def test_api_can_return_all_users(client):
     response = client.get("/api/users/all")
     assert response.status_code == 200
-    assert type(response.get_json()["users"]) == list
+    assert response.get_json()["users"] == []
