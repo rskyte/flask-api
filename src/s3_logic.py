@@ -5,11 +5,13 @@ import pickle
 class S3Logic:
 
     def __init__(self, client = None, bucket = None):
-        if os.environ.get('IS_OFFLINE'):
-            session = boto3.session.Session()
-            self.client = session.client('s3')
-        #self.bucket_name = 'flask-api-bucket'
-        self.bucket_name = 'local-bucket'
+        # Attempt at running local s3 bucket for local development
+        # TODO finish
+        #if os.environ.get('IS_OFFLINE'):
+            #session = boto3.session.Session()
+            #self.client = session.client('s3')
+        #self.bucket_name = 'local-bucket'
+        self.bucket_name = 'flask-api-bucket'
         if bucket is not None:
             self.bucket = bucket
         else:
@@ -19,10 +21,7 @@ class S3Logic:
             self.client = client
         else:  
             session = boto3.session.Session()
-            self.client = session.client('s3',
-                                    region_name='eu-west-2',
-                                    aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
-                                    aws_secret_access_key=os.environ.get('AWS_SECRET_ID'))
+            self.client = session.client('s3')
     
     def put(self, data):
         serializedObject = pickle.dumps(data)
@@ -38,6 +37,6 @@ class S3Logic:
             user_list.append(str(key.key))
         return user_list
 
-# for get user
+# TODO get singular user route
 #thing = self.client.get_object(Bucket=self.bucket_name,Key=user_id)
 #_thing = pickle.loads(thing['Body'].read())

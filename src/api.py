@@ -9,7 +9,7 @@ def create_app(s3_logic = S3Logic()):
     def index():
         return "<h1>Flask API<h1>"
 
-    @app.route("/api/users", methods=["POST"])
+    @app.route("/api/user/new", methods=["POST"])
     def create_user():
         try:
             user_id = request.json.get('userId')
@@ -22,7 +22,7 @@ def create_app(s3_logic = S3Logic()):
 
         return jsonify({'status': 'success', 'userId': user_id})
     
-    @app.route("/api/users/all")
+    @app.route("/api/user/all")
     def all_users():
         users = s3.get_all_user_ids()
         return jsonify({"users": users})

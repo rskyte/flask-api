@@ -32,16 +32,16 @@ def test_api_route_has_welcome_page(client):
 
 def test_api_can_receive_user_data(client):
     test_data = {'userId': 'jbloggs', 'name': 'Joseph Bloggs'}
-    response = client.post("/api/users", json=test_data)
+    response = client.post("/api/user/new", json=test_data)
     assert response.status_code == 200
     assert response.get_json() == {'status': 'success', 'userId': 'jbloggs'}
 
 def test_api_refuses_data_in_incorrect_format(client):
-    response = client.post("/api/users", json="incorrect")
+    response = client.post("/api/user/new", json="incorrect")
     assert response.status_code == 400
     assert response.get_json() == {'error': 'Please provide data in correct format'}
 
 def test_api_can_return_all_users(client):
-    response = client.get("/api/users/all")
+    response = client.get("/api/user/all")
     assert response.status_code == 200
     assert response.get_json()["users"] == []

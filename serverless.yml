@@ -3,7 +3,6 @@ service: serverless-flask
 plugins:
   - serverless-python-requirements
   - serverless-wsgi
-  - serverless-s3-local
 
 custom:
   wsgi:
@@ -12,23 +11,12 @@ custom:
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux
-  s3:
-    host: 0.0.0.0
-    port: 8000
-    directory: /tmp
 
 provider:
   name: aws
   runtime: python3.6
   stage: dev
   region: eu-west-2
-
-resources:
-  Resources:
-    NewResource:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: local-bucket
 
 functions:
   # TODO - extract rest methods into individual handlers

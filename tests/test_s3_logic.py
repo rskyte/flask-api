@@ -27,6 +27,7 @@ class S3LogicTest(unittest.TestCase):
         self.assertEqual(value, 200, 'incorrect status code returned')
 
     #def test_unsuccessful_data_input_returns_400_status_code(self):
+    # TODO finish
 
     def test_can_read_list_of_all_user_ids_from_bucket(self):
         value = self.s3_logic.get_all_user_ids()
